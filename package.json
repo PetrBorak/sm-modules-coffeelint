@@ -1,0 +1,16 @@
+{
+  "name": "sm-modules-coffeelint",
+  "version": "0.0.3",
+  "main": "register-3rdparty.coffee",
+  "readme": "ERROR: No README data found!",
+  "_id": "sm-modules-coffeelint@0.0.1",
+  "scripts": {},
+  "bin": {
+    "hello": "./bin/binnary.js"
+  },
+  "_shasum": "b75f4c7a38fe132e05607883146a2326131b2c3e",
+  "_from": "sm-modules-coffeelint@0.0.1",
+  "dependencies": {
+    "coffee-script": "^1.10.0"
+  }
+}
