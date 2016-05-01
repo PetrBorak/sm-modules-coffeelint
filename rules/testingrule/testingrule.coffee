@@ -1,10 +1,10 @@
 console.log('++++++++++++++++++++++')
-module.exports = class NoComment
+module.exports = class testingrule
 
     constructor: ()->
         console.log('TESTING RULE CONSTRUCTOR')
     rule:
-        name: 'no_comment'
+        name: 'testingrule'
         level: 'error'
         message: 'No comment'
         description: '''
@@ -19,3 +19,4 @@ module.exports = class NoComment
 
     lintLine: (token,tokenAPI) ->
         console.log('LINT LINE')
+        return true

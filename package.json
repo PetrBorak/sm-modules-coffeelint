@@ -1,6 +1,6 @@
 {
   "name": "sm-modules-coffeelint",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "register-3rdparty.coffee",
   "readme": "ERROR: No README data found!",
   "_id": "sm-modules-coffeelint@0.0.1",
