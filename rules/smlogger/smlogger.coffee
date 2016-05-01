@@ -4,15 +4,13 @@ consoleRegex = /console.(log|warn|clear|assert|count|debug|dir|error|group|info|
 module.exports = class testingrule
 
     constructor: ()->
+        console.log('+++++++CONSTRUCTOR++++++++')
     rule:
-        name: 'testingrule'
+        name: 'smlogger'
         level: 'error'
         message: 'Do not use the console command. Use sm-logger instead'
         description: '''
             Forbid console usage
             '''
     lintLine: (line, lineApi) ->
-        if consoleRegex.test(line)
-            true
-        else
-            null
+        consoleRegex.test(line)

@@ -8,7 +8,8 @@ var fs = require('fs')
 
 require('coffee-script/register');
 
-var coffeelintjson = JSON.parse(fs.readFileSync('coffeelint.json'));
+var coffeelintInternaljson = JSON.parse(fs.readFileSync('coffeelint-internal.json'));
+var coffeelintFinalJson = {}
 
 thisdir = path.dirname(fs.realpathSync(__filename));
 rulesdir = path.join(thisdir, '..', "rules");
@@ -19,12 +20,11 @@ var dirread = fs.readdirSync(rulesdir);
 dirread.forEach(function(dirrule){
     var ruledirresolved = path.join(rulesdir,dirrule);
     var toCoffeelintJson = 'sm-modules-coffeelint/rules/'+dirrule
-    coffeelintjson[dirrule] = {}
-    coffeelintjson[dirrule]['module'] = toCoffeelintJson;
+    coffeelintFinalJson[dirrule] = {}
+    coffeelintFinalJson[dirrule]['module'] = toCoffeelintJson;
+    for(var i in coffeelintInternaljson){
+        coffeelintFinalJson[i] = coffeelintInternaljson[i]
+    }
 })
-for(var i in coffeelintjson){
-    var coffeelintjsonwith
-    var withlinebreak = os.EOL + i;
-    coffeelintjson[i] = coffeelintjson[i]
-}
-fs.writeFileSync('coffeelint.json',JSON.stringify(coffeelintjson,'\n'))
+
+fs.writeFileSync('coffeelint.json',JSON.stringify(coffeelintFinalJson,'\n'))
