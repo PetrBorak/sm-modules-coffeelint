@@ -16,8 +16,6 @@ var resolvedpath = path.relative(process.cwd(), rulesdir)
 
 var dirread = fs.readdirSync(rulesdir);
 
-console.log('dirread',dirread);
-
 dirread.forEach(function(dirrule){
     var ruledirresolved = path.join(rulesdir,dirrule);
     var toCoffeelintJson = 'sm-modules-coffeelint/rules/'+dirrule
