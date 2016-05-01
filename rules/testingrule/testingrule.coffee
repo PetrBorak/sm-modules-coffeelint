@@ -1,22 +1,18 @@
-console.log('++++++++++++++++++++++')
+indentationRegex = /\s+/
+consoleRegex = /console.log/
+
 module.exports = class testingrule
 
     constructor: ()->
-        console.log('TESTING RULE CONSTRUCTOR')
     rule:
         name: 'testingrule'
         level: 'error'
-        message: 'No comment'
+        message: 'Do not use the console.log. Use sm-logger instead'
         description: '''
-            Disallows any comment in the code
+            Forbid consolel.log usage
             '''
-
-    tokens: ['->']
-
-    lintToken : (token, tokenApi) ->
-        console.log('JSEM |TU',token)
-        return {context: "Found '#{token[0]}'"}
-
-    lintLine: (token,tokenAPI) ->
-        console.log('LINT LINE')
-        return true
+    lintLine: (line, lineApi) ->
+        if consoleRegex.test(line)
+            true
+        else
+            null
